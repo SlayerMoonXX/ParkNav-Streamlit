@@ -1,0 +1,57 @@
+{
+  "rules": [
+    {
+      "id": "R1",
+      "name": "Vehicle Size Match",
+      "description": "Match vehicle type to appropriate slot size",
+      "conditions": {"vehicle_type": ["suv", "truck"]},
+      "action": "prefer_large_slots",
+      "weight": 0.3
+    },
+    {
+      "id": "R2",
+      "name": "Floor Preference",
+      "description": "Prefer lower floors for convenience",
+      "conditions": {"preferred_floor": "lower"},
+      "action": "score_by_floor",
+      "weight": 0.25
+    },
+    {
+      "id": "R3",
+      "name": "Elevator Proximity",
+      "description": "Prefer slots near elevator",
+      "conditions": {"near_elevator": true},
+      "action": "score_by_elevator_distance",
+      "weight": 0.2
+    },
+    {
+      "id": "R4",
+      "name": "Exit Proximity",
+      "description": "Prefer slots near exit for quick departure",
+      "conditions": {"near_exit": true},
+      "action": "score_by_exit_distance",
+      "weight": 0.15
+    },
+    {
+      "id": "R5",
+      "name": "Accessibility",
+      "description": "Disability-accessible slots",
+      "conditions": {"accessible": true},
+      "action": "filter_accessible_only",
+      "weight": 0.1
+    }
+  ],
+  "scoring": {
+    "distance_weight": 0.3,
+    "floor_weight": 0.25,
+    "elevator_weight": 0.2,
+    "exit_weight": 0.15,
+    "accessibility_weight": 0.1
+  },
+  "vehicle_types": {
+    "sedan": {"size": "standard", "label": "Sedan"},
+    "suv": {"size": "large", "label": "SUV / Truck"},
+    "motorcycle": {"size": "small", "label": "Motor"},
+    "disability": {"size": "standard", "label": "Disabilitas", "requires_accessible": true}
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Dead-End Scenario",
+  "description": "A parking map with dead-end corridors to test A* backtracking ability",
+  "num_floors": 2,
+  "num_rows": 8,
+  "num_cols": 12,
+  "floors": [
+    {
+      "floor": 0,
+      "name": "Ground Floor (Lantai 1)",
+      "grid": [
+        [1, 1, 6, 0, 0, 1, 1, 1, 0, 0, 1, 1],
+        [1, 2, 2, 0, 0, 1, 3, 1, 0, 2, 2, 1],
+        [1, 3, 2, 0, 0, 1, 0, 1, 0, 3, 2, 1],
+        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 2, 0, 2, 3, 2, 0, 2, 3, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 7, 0, 0, 0, 0, 0, 0, 0, 4, 1]
+      ]
+    },
+    {
+      "floor": 1,
+      "name": "Level 2 (Lantai 2)",
+      "grid": [
+        [1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1],
+        [1, 2, 3, 0, 2, 2, 0, 1, 0, 2, 3, 1],
+        [1, 2, 2, 0, 3, 2, 0, 1, 0, 2, 2, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1],
+        [1, 2, 0, 1, 2, 3, 0, 2, 0, 3, 2, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 5, 1]
+      ]
+    }
+  ],
+  "slots": {
+    "L1-A01": {"floor": 0, "row": 1, "col": 1, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-A02": {"floor": 0, "row": 1, "col": 2, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-A03": {"floor": 0, "row": 1, "col": 6, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L1-A04": {"floor": 0, "row": 1, "col": 9, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-A05": {"floor": 0, "row": 1, "col": 10, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-B01": {"floor": 0, "row": 2, "col": 1, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L1-B02": {"floor": 0, "row": 2, "col": 2, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-B03": {"floor": 0, "row": 2, "col": 9, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L1-B04": {"floor": 0, "row": 2, "col": 10, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-C01": {"floor": 0, "row": 5, "col": 3, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-C02": {"floor": 0, "row": 5, "col": 5, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-C03": {"floor": 0, "row": 5, "col": 6, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L1-C04": {"floor": 0, "row": 5, "col": 7, "type": "standard", "status": "available", "accessible": true, "size": "large"},
+    "L1-C05": {"floor": 0, "row": 5, "col": 9, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L1-C06": {"floor": 0, "row": 5, "col": 10, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+
+    "L2-A01": {"floor": 1, "row": 1, "col": 1, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-A02": {"floor": 1, "row": 1, "col": 2, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L2-A03": {"floor": 1, "row": 1, "col": 4, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-A04": {"floor": 1, "row": 1, "col": 5, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-A05": {"floor": 1, "row": 1, "col": 9, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-A06": {"floor": 1, "row": 1, "col": 10, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L2-B01": {"floor": 1, "row": 2, "col": 1, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-B02": {"floor": 1, "row": 2, "col": 2, "type": "standard", "status": "available", "accessible": false, "size": "large"},
+    "L2-B03": {"floor": 1, "row": 2, "col": 4, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L2-B04": {"floor": 1, "row": 2, "col": 5, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-B05": {"floor": 1, "row": 2, "col": 9, "type": "standard", "status": "available", "accessible": true, "size": "large"},
+    "L2-B06": {"floor": 1, "row": 2, "col": 10, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-C01": {"floor": 1, "row": 5, "col": 1, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-C02": {"floor": 1, "row": 5, "col": 4, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-C03": {"floor": 1, "row": 5, "col": 5, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L2-C04": {"floor": 1, "row": 5, "col": 7, "type": "standard", "status": "available", "accessible": false, "size": "standard"},
+    "L2-C05": {"floor": 1, "row": 5, "col": 9, "type": "standard", "status": "occupied", "accessible": false, "size": "standard"},
+    "L2-C06": {"floor": 1, "row": 5, "col": 10, "type": "standard", "status": "available", "accessible": false, "size": "standard"}
+  },
+  "ramp_connections": [
+    {"from": [0, 7, 10], "to": [1, 7, 10], "cost_up": 2.0, "cost_down": 1.5}
+  ],
+  "elevator_positions": []
+}
