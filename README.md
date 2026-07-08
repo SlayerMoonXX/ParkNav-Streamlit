@@ -10,6 +10,11 @@
 
 ---
 
+Nama Kelompok:
+Rafael Situmorang - 2411030028
+Adriel Massimo - 24110300040
+Bima Turangga Bayu Pratama - 24110300029
+
 ## 📋 Deskripsi
 
 **ParkNav AI** adalah sistem navigasi cerdas untuk gedung parkir bertingkat yang mampu:
